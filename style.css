@@ -15,6 +15,7 @@
   --Navy-900: hsl(235, 46%, 20%);
   --Purple-500: hsl(235, 45%, 61%);
   --Navy-200: hsl(236, 100%, 87%);
+  --White: #fff;
 }
 
 * {
@@ -28,11 +29,12 @@ html {
 }
 
 body {
-  /* min-height: 100vh; */
+  min-height: 100vh;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 18px;
+  color: var(--White);
   background-color: var(--Navy-950);
   border: 1px solid var(--Navy-950);
 }
@@ -44,8 +46,6 @@ img {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 1fr);
-  grid-auto-rows: 120px;
   gap: 1.4em;
   margin: 4em auto;
   width: 90%;
@@ -53,11 +53,99 @@ img {
 }
 
 .card {
+  position: relative;
+  height: 175px;
+  padding-top: 12%;
   border-radius: 10px;
+  font-family: inherit;
+  overflow: hidden;
+}
+
+.card__img {
+  position: absolute;
+  top: -11px;
+  right: 20px;
+  z-index: 0;
 }
 
 .card--profile {
+  padding: 0;
+  height: 200px;
+  background-color: var(--Navy-900);
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  height: 70%;
+  padding: 0 1.6em;
   background-color: var(--Purple-600);
+  border-radius: 10px;
+}
+
+.card__header > div:first-child {
+  width: 60px;
+  height: 60px;
+  margin-right: 1.6rem;
+  border: 2px solid var(--White);
+  border-radius: 50%;
+}
+
+.card__intro p:first-child {
+  margin-bottom: 0.4rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--Navy-200);
+}
+
+.card__intro p:last-child {
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+.card__links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+}
+
+.card__links button {
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: transparent;
+}
+
+.card__layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 1.8em 1.4em;
+  background-color: var(--Navy-900);
+  border-radius: 10px;
+}
+
+.card__title,
+.card__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__description > p:first-child {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.card__description > p:last-child {
+  font-size: 1.6rem;
+  color: var(--Navy-200);
 }
 
 .card--work {
@@ -76,6 +164,10 @@ img {
   background-color: var(--Green-400);
 }
 
+.card--exercise > .card__img {
+  top: 0px;
+}
+
 .card--social {
   background-color: var(--Purple-700);
 }
@@ -85,10 +177,20 @@ img {
 }
 
 @media (min-width: 769px) {
+  body {
+    display: flex;
+    align-items: center;
+  }
+
   .grid {
     place-content: center;
     grid-template-columns: repeat(auto-fill, 240px);
-    grid-auto-rows: 180px;
+    /* grid-auto-rows: 180px; */
     max-width: unset;
+  }
+
+  .card--profile {
+    height: auto;
+    grid-row: 1 / 3;
   }
 }
