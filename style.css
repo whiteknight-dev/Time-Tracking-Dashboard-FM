@@ -44,6 +44,10 @@ img {
   max-width: 100%;
 }
 
+.active {
+  color: var(--White);
+}
+
 .grid {
   display: grid;
   gap: 1.4em;
@@ -109,7 +113,6 @@ img {
   align-items: center;
   height: 30%;
   color: var(--Navy-200);
-  opacity: 0.5;
 }
 
 .card__links button {
@@ -118,6 +121,13 @@ img {
   color: inherit;
   border: none;
   background-color: transparent;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__links button:hover {
+  color: #fff;
+  opacity: 1;
 }
 
 .card__layout {
@@ -131,6 +141,22 @@ img {
   padding: 1.8em 1.4em;
   background-color: var(--Navy-900);
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.card__layout:hover:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  filter: opacity(20%);
+}
+
+.card__title img {
+  cursor: pointer;
 }
 
 .card__title,
