@@ -44,10 +44,6 @@ img {
   max-width: 100%;
 }
 
-.active {
-  color: var(--White);
-}
-
 .grid {
   display: grid;
   gap: 1.4em;
@@ -127,6 +123,11 @@ img {
 
 .card__links button:hover {
   color: #fff;
+  opacity: 1;
+}
+
+.card__links .active {
+  color: var(--White);
   opacity: 1;
 }
 
